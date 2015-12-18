@@ -1,0 +1,108 @@
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!--  For BootStrap -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!--  end of BootStrap -->
+		
+		
+<link rel="stylesheet" type="text/css" href="resources/css/main.css">
+
+</head>
+
+
+
+<body>
+	<div class="container">
+	
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  				<div class="container-fluid">
+    				<!-- Brand and toggle get grouped for better mobile display -->
+    				<div class="navbar-header">
+      					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+	      				</button>
+	      				<a class="navbar-brand logo" href="#">
+	      					<span><i class="fa fa-stethoscope"></i></span>
+	      					HealthCare
+	      				</a>
+	    			</div>
+		
+		    		<!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				    	<ul class="nav navbar-nav navbar-right">
+					       	<li><a href="home.htm">Home</a></li>
+					        <li><a href="services.htm">Services</a></li>
+					        <li><a href="careers.htm">Careers</a></li>
+							<li   class="active"><a href="question.htm">FAQs</a></li>
+							<li><a href="signin.htm">Sign In</a></li>
+							
+							
+				      	</ul>
+				    </div><!-- navbar-collapse -->
+				</div><!-- container-fluid -->
+			</nav>
+		
+		<br><br><br><br>
+		<section id="content">
+		<b style="color:red;">If you are experiencing a medical emergency, please dial 9-1-1 by phone</b>
+		<h3>Frequently Asked Questions </h3>
+		<ul>
+		<li><b>Enrolling in Health Care?</b>
+		<ul><li> If you are a new user to HealthCare Services(18 years and older), go to www.healthcare.org and click Enroll now to begin the enrollment process. If you want to enroll a child or teenager in HealthCare, please contact your practice.   </li> </ul>
+		</li>
+		
+		<li><b>What is my Activation Code? How does it differ from my Password?</b>
+		<ul><li>Your Activation Code is used only once. This code was either provided at your practice if you enrolled there or you received it by mail from Health Care support.</li></ul>
+		</li>
+		
+		<li><b>What is my Activation Code? How does it differ from my Password?</b>
+		<ul><li>Your Activation Code is used only once. This code was either provided at your practice if you enrolled there or you received it by mail from Health Care support.</li></ul>
+		</li>
+		
+		<li><b>What is required to use Health Care Gateway?</b>
+		<ul><li>To have the best and most secure experience using Health Care Gateway, we ask that you are using a recent version of one of today's modern browsers such as Internet Explorer, Chrome, Firefox or Safari.</li></ul>
+		</li>
+		
+		<li><b>Are there any security settings required on my computer?</b>
+		<ul><li>No</li></ul>
+		</li>
+		
+		<li><b>Can I access Health Care  on my mobile device?</b>
+		<ul><li>Yes you can. Smartphones can now access a mobile version of Patient Gateway by going to www.healthcare.org. (Note: Only smartphones can display the mobile site. Supported phones include Androids (Android Browser 3.x and up) and iPhones (Safari 3GS and up with iOS 5.x and up.)</li></ul>
+		</li>
+		
+		</ul>
+		
+		
+		</section>
+		
+		
+
+  			
+
+		
+		<div class="navbar navbar-default navbar-fixed-bottom">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"></a>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

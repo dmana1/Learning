@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+        
+	<var name="registration" class="com.me.care.model.Registration"/>
+
+	<view-state id="registration" view="/WEB-INF/views/registration.jsp" model="registration">
+		<transition on="next" to="registrationAction"></transition>
+	</view-state>
+
+	<action-state id="registrationAction">
+	<evaluate expression="registrationService.register(registration)" />
+
+	<transition to="showAgreement" />
+
+	<transition
+		on-exception="com.me.care.exception.InvalidRegistrationException"
+		to="registrationInvalid" />
+	</action-state>
+	
+	<view-state id="showAgreement" view="/WEB-INF/views/showAgreement.jsp" model="registration">
+		 <transition on="prev" to="registration"></transition>
+		<transition on="finish" to="createAccount"></transition>
+		
+	</view-state>
+	
+	<view-state id="registrationInvalid" view="/WEB-INF/views/registrationInvalid.jsp"  model="registration">
+	<transition on="next" to="registrationAction"></transition>
+	</view-state>
+	
+	
+	<action-state id="createAccount">
+	<evaluate expression="registrationService.createPatient(registration)" />
+
+	<transition to="success" />
+
+	<transition
+		on-exception="com.me.care.exception.InvalidRegistrationException"
+		to="registrationInvalid" />
+	</action-state>
+	
+	 <end-state id="success" view="/WEB-INF/views/success.jsp"/>
+	
+	
+
+</flow>

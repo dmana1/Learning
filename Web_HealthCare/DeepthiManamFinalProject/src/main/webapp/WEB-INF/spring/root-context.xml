@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="userValidator" class="com.me.care.validator.UserValidator"></bean>
+	
+	<bean id="userDao" class="com.me.care.dao.UserDao"></bean>
+	<bean id="enterpriseDao" class="com.me.care.dao.EnterpriseDao"></bean>
+	<bean id="employeeDao" class="com.me.care.dao.EmployeeDao"></bean>
+	<bean id="patientDao" class="com.me.care.dao.PatientDao"></bean>
+	<bean id="encounterDao" class="com.me.care.dao.EncounterDao"></bean>
+	<bean id="vitalsignDao" class="com.me.care.dao.VitalsignDao"></bean>
+	<bean id="medicationDao" class="com.me.care.dao.MedicationDao"></bean>
+	<bean id="drugDao" class="com.me.care.dao.DrugDao"></bean>
+	<bean id="workRequestDao" class="com.me.care.dao.WorkRequestDao"></bean>
+	<bean id="resumeUploadDao" class="com.me.care.dao.ResumeUploadDao"></bean>
+	<bean id="messageDao" class="com.me.care.dao.MessageDao"></bean>
+	
+	
+	
+	<bean id="registrationService" class ="com.me.care.RegistrationService">
+	<constructor-arg ref="userDao"/>
+    <constructor-arg ref="patientDao"/>
+	</bean>
+	
+	
+	<bean id="cmsInterceptor" class="com.me.care.interceptor.CMSInterceptor"> </bean>
+	<bean id="patientInterceptor" class="com.me.care.interceptor.AddPatientInterceptor"> </bean>
+	<bean id="searchInterceptor" class="com.me.care.interceptor.SearchInterceptor"> </bean>
+	
+	
+
+
+</beans>

@@ -1,0 +1,189 @@
+.managePatient{
+	background-color: #99D6EB;
+}
+.row{
+	padding-bottom: 5px;
+}
+.content{
+	padding-top: 150px;
+}
+
+.content1{
+	padding-top: 90px;
+	
+}
+.content2{
+	padding-top: 75px;
+	
+}
+.patientProfile{
+	margin:10px;
+	border-width: thick;
+	border-color: blue;
+}
+.login{
+	border-width: thick;
+}
+
+
+#empty{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#left{
+	 width: 20px;
+    overflow: hidden;
+}
+#right{	
+	 width: 80px;
+    overflow: hidden;
+}
+
+
+.logo
+{
+    font-family: 'Dosis', sans-serif;
+}
+.nav.navbar-nav 
+{
+    /* padding: 0px 20px; */
+}
+.navbar-default
+{
+    background-color: #267D90;
+    background-color: #085A6C;
+}
+.navbar-default .navbar-header .logo
+{
+    font-size: 32px;
+    color: #fff;
+}
+.navbar-nav li 
+{
+    /* border-right: 1px solid #54aec2; */
+    padding: 7px 0px;
+}
+.navbar-default .navbar-nav li a 
+{
+    text-shadow: 1px 1px 0px #20606D;
+    color: #fff;
+}
+.navbar-default .navbar-nav>.active
+{
+    background-color: rgba(5, 207, 252, 0.62);
+    border-top: 4px ridge rgb(5, 207, 252);
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus 
+{
+    color: #fff;
+}
+li:last-child 
+{
+    border-right: transparent;
+}
+.navbar-default .navbar-nav>li:hover, .navbar-default .navbar-nav>li:focus {
+    background-color: #377F8F;
+    color: white;
+    border-bottom: 4px ridge rgb(5, 207, 252);
+}
+.navbar-fixed-top .navbar-collapse
+{
+    /* max-height: 415px; */
+}
+.container-fluid 
+{
+    margin-left: 20px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
+{
+    color: #fff;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>.active:hover 
+{
+    background-color: rgba(5, 207, 252, 0.62);
+    border-bottom: none;
+}
+
+.dropdown-menu{
+	background-color: rgba(5, 207, 252, 0.62);
+    border-bottom: 1px;
+}
+
+/* styling for home page */
+
+.service-title
+{
+    background: url(../images/home3.jpg);
+    background-size: cover;
+    vertical-align: middle;
+    background-position: center;
+    color: #F0FEFF;
+}
+.service-title .headline 
+{
+    font-size: 70px;
+    word-spacing: 10px;
+}
+.service-wrapper
+{
+    background-color: rgba(45, 53, 56, 0.28);
+    padding: 78px 0px;
+    margin-top: 65px;
+}
+.service
+{
+    padding: 40px 20px;
+    transition: all 0.5s ease 0s;
+}
+
+.sub-headline 
+{
+    padding: 15px 0px 40px 0px;
+    font-size: 24px;
+}
+.headline 
+{
+    padding-top: 45px;
+    font-size: 45px;
+}
+
+
+/* styling for faq page */
+.faq-title
+{
+   background: url(../images/question.jpg);
+    background-size: cover;
+    vertical-align: middle;
+    background-position: center;
+    color: #F0FEFF;
+}
+.faq-title .headline
+{
+    font-size: 70px;
+    word-spacing: 10px;
+}
+.faq-wrapper
+{
+    background-color: rgba(45, 53, 56, 0.62);
+    padding: 78px 0px;
+    margin-top: 65px;
+}
+
+
+.faq-header{
+    font-size: 2em;
+    border-bottom: 1px dotted #ccc;
+    padding: 1em 0;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.faq-content
+{
+    margin-top: 80px;
+}
+
+
