@@ -1,13 +1,12 @@
 package p2;
-
+/**
+ * @author Deepthi
+ *
+ */
 /**
  * We create all food objects used by the simulation in one place, here.  
  * This allows us to safely check equality via reference, rather than by 
  * structure/values.
- *
- */
-/**
- * @author Deepthi
  *
  */
 public class FoodType {

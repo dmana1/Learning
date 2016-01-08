@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -31,8 +30,6 @@ public class Simulation {
 	public static PriorityComparator priorityComparator;
 	//Map that hold machines
 	public static HashMap<String,Machine> machinesMap;
-	public static Map<Customer, Boolean> completedOrder = new HashMap<Customer,Boolean>();
-
 	
 	public static Machine grill;
 	public static Machine fryer;
@@ -242,16 +239,27 @@ public class Simulation {
 		
 //		int numCustomers = 5000;
 //		int numCooks =100;
-//		int numTables = 500;
-//		int machineCapacity = 500;
+//		int numTables = 100;
+//		int machineCapacity = 100;
 //		boolean randomOrders = false;
 		
 
 
 		// Run the simulation and then 
 		//   feed the result into the method to validate simulation.
+//		System.out.println("Did it work? " + 
+//				Validate1.validateSimulation(
+//						runSimulation(
+//								numCustomers, numCooks, 
+//								numTables, machineCapacity,
+//								randomOrders
+//								),numCustomers, numCooks, 
+//								numTables, machineCapacity
+//						)
+//				);
+//		
 		System.out.println("Did it work? " + 
-				Validate.validateSimulation(
+				Validate2.validateSimulation(
 						runSimulation(
 								numCustomers, numCooks, 
 								numTables, machineCapacity,
@@ -259,6 +267,7 @@ public class Simulation {
 								)
 						)
 				);
+
 	}
 }
 

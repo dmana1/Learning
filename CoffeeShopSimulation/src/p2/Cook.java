@@ -9,10 +9,6 @@ import java.util.List;
  * When running, a cook attempts to retrieve outstanding orders placed
  * by Eaters and process them.
  */
-/**
- * @author Deepthi
- *
- */
 public class Cook implements Runnable {
 	private final String name;
 	private Customer currCustomer;
@@ -123,14 +119,14 @@ public class Cook implements Runnable {
 						finishedFood.notifyAll();
 					}
 					
-					
+					if(finishedFood.size() == currCustomer.getOrder().size()){
+						
+						Simulation.logEvent(SimulationEvent.cookCompletedOrder(this, currCustomer.getOrderNum()));
+
+						currCustomer.orderReadylatch.countDown();
+					}
 				}
-				Simulation.logEvent(SimulationEvent.cookCompletedOrder(this, currCustomer.getOrderNum()));
 				
-				synchronized(Simulation.completedOrder){
-					Simulation.completedOrder.put(currCustomer, true);
-					Simulation.completedOrder.notifyAll();
-				}
 				finishedFood = new LinkedList<Food>();
 			
 			

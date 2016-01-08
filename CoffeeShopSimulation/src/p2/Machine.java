@@ -2,10 +2,7 @@ package p2;
 
 import java.util.LinkedList;
 import java.util.Queue;
-/**
- * @author Deepthi
- *
- */
+
 /**
  * A Machine is used to make a particular Food.  Each Machine makes
  * just one kind of Food.  Each machine has a capacity: it can make
@@ -14,7 +11,6 @@ import java.util.Queue;
  * Each food item takes at least item.cookTimeMS milliseconds to
  * produce.
  */
-
 public class Machine {
 	public final String machineName;
 	public final Food machineFoodType;
@@ -88,7 +84,7 @@ public class Machine {
 					synchronized(currCook.finishedFood){
 						currCook.finishedFood.add(machineFoodType);
 						currCook.finishedFood.notifyAll();	
-						//customer.orderReadylatch.countDown();
+						customer.orderReadylatch.countDown();
 					}
 				
 				

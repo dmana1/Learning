@@ -1,7 +1,11 @@
 package p2;
 
 import java.util.List;
-
+import java.util.concurrent.CountDownLatch;
+/**
+ * @author Deepthi
+ *
+ */
 /**
  * Customers are simulation actors that have two fields: a name, and a list
  * of Food items that constitute the Customer's order.  When running, an
@@ -9,17 +13,13 @@ import java.util.List;
  * coffee shop has a free table), place its order, and then leave the 
  * coffee shop when the order is complete.
  */
-/**
- * @author Deepthi
- *
- */
 public class Customer implements Runnable {
 	//JUST ONE SET OF IDEAS ON HOW TO SET THINGS UP...
 	private final String name;
 	private final List<Food> order;
 	private final int orderNum;    
 	private final int priority;
-	//public CountDownLatch orderReadylatch;//latch to check when all the items in the order is done.
+	public CountDownLatch orderReadylatch;//latch to check when all the items in the order is done.
 	
 	private static int runningCounter = 0;
 
@@ -33,7 +33,7 @@ public class Customer implements Runnable {
 		this.order = order;
 		this.priority = priority;
 		this.orderNum = runningCounter++;
-//		orderReadylatch = new CountDownLatch(order.size() + 1);
+		orderReadylatch = new CountDownLatch(order.size() + 1);
 	}
 
 	public String toString() {
@@ -58,46 +58,29 @@ public class Customer implements Runnable {
 		}
 		//*****After entering the coffee shop
         Simulation.logEvent(SimulationEvent.customerEnteredCoffeeShop(this));
-        //Place the Order
+        
+        //****** placing order
         Simulation.logEvent(SimulationEvent.customerPlacedOrder(this, this.order, this.orderNum));
-
+        //Place the Order
         try {
 			Simulation.customerOrderQueue.put(this);
 		} catch (InterruptedException e1) {
 			System.out.println("Customer thread interrupted while placing the order");
 		}
-        //******After placing order
+       
 
         //Check whether order is complete.
-//        try{
-//        this.orderReadylatch.await();
-//        //****After receiving order
-//        Simulation.logEvent(SimulationEvent.customerReceivedOrder(this, this.order, this.orderNum));
-//        }catch (InterruptedException e) {
-//			System.out.println("Customer thread interrupted while waiting for order completion");
-//		}
-        synchronized(Simulation.completedOrder){
-			Simulation.completedOrder.put(this, false);
+        try{
+        this.orderReadylatch.await();
+        //****After receiving order
+        Simulation.logEvent(SimulationEvent.customerReceivedOrder(this, this.order, this.orderNum));
+        }catch (InterruptedException e) {
+			System.out.println("Customer thread interrupted while waiting for order completion");
 		}
-		
-		synchronized(Simulation.completedOrder){
-			while(!(Simulation.completedOrder.get(this))){
-				try {
-					Simulation.completedOrder.wait();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			Simulation.logEvent(SimulationEvent.customerReceivedOrder(this, this.order, this.orderNum));
-		    Simulation.completedOrder.notifyAll();
-		}
-        
 
 		//*****Just before about to leave the coffeshop.
-		Simulation.logEvent(SimulationEvent.customerLeavingCoffeeShop(this));
+        Simulation.logEvent(SimulationEvent.customerLeavingCoffeeShop(this));
         Simulation.customersEntered.remove(this);
-
 		
 	}
 
@@ -121,9 +104,9 @@ public class Customer implements Runnable {
 		return runningCounter;
 	}
 
-//	public CountDownLatch getOrderReadylatch() {
-//		return orderReadylatch;
-//	}
+	public CountDownLatch getOrderReadylatch() {
+		return orderReadylatch;
+	}
 	
 	@Override
 	public int hashCode() {
