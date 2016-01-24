@@ -33,7 +33,7 @@ public class Customer implements Runnable {
 		this.order = order;
 		this.priority = priority;
 		this.orderNum = runningCounter++;
-		orderReadylatch = new CountDownLatch(order.size() + 1);
+		orderReadylatch = new CountDownLatch(order.size());
 	}
 
 	public String toString() {
@@ -58,16 +58,14 @@ public class Customer implements Runnable {
 		}
 		//*****After entering the coffee shop
         Simulation.logEvent(SimulationEvent.customerEnteredCoffeeShop(this));
-        
-        //****** placing order
-        Simulation.logEvent(SimulationEvent.customerPlacedOrder(this, this.order, this.orderNum));
         //Place the Order
         try {
 			Simulation.customerOrderQueue.put(this);
 		} catch (InterruptedException e1) {
 			System.out.println("Customer thread interrupted while placing the order");
 		}
-       
+        //******After placing order
+        Simulation.logEvent(SimulationEvent.customerPlacedOrder(this, this.order, this.orderNum));
 
         //Check whether order is complete.
         try{
@@ -106,25 +104,6 @@ public class Customer implements Runnable {
 
 	public CountDownLatch getOrderReadylatch() {
 		return orderReadylatch;
-	}
-	
-	@Override
-	public int hashCode() {
-		int result = 0; 
-
-		result = 31*result + (name !=null ? name.hashCode() : 0); 
- 
-		return result;
-
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(this == obj) return true; 
-		if(obj == null || (this.getClass() != obj.getClass())){ return false; } 
-		Customer customer = (Customer) obj; 
-		return  (this.name != null && (this.name).equals(customer.name));
-
 	}
 
 	

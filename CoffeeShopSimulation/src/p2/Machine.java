@@ -93,28 +93,6 @@ public class Machine {
 	}
  
 
-	@Override
-	public int hashCode() {
-		int result = 0; 
-
-		result = 31*result + (machineName !=null ? machineName.hashCode() : 0); 
- 
-		return result;
-
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(this == obj) return true; 
-		if(obj == null || (this.getClass() != obj.getClass())){ return false; } 
-		Machine machine = (Machine) obj; 
-		return  (this.machineName != null && (machine.machineName).equals(this.machineName));
-
-	}
-
-
-
-
 	public String toString() {
 		return machineName;
 	}

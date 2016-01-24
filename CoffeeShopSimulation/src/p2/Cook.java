@@ -28,25 +28,6 @@ public class Cook implements Runnable {
 	public String toString() {
 		return name;
 	}
-	
-	@Override
-	public int hashCode() {
-		int result = 0; 
-
-		result = 31*result + (name !=null ? name.hashCode() : 0); 
- 
-		return result;
-
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(this == obj) return true; 
-		if(obj == null || (this.getClass() != obj.getClass())){ return false; } 
-		Cook cook = (Cook) obj; 
-		return  (this.name != null && (this.name).equals(cook.name));
-
-	}
 
 	/**
 	 * This method executes as follows.  The cook tries to retrieve
@@ -113,20 +94,17 @@ public class Cook implements Runnable {
 					}
 				}
 				synchronized(finishedFood){
-				
 					while(!(finishedFood.size() == currCustomer.getOrder().size())){
 						finishedFood.wait();
 						finishedFood.notifyAll();
 					}
-					
-					if(finishedFood.size() == currCustomer.getOrder().size()){
-						
-						Simulation.logEvent(SimulationEvent.cookCompletedOrder(this, currCustomer.getOrderNum()));
-
-						currCustomer.orderReadylatch.countDown();
-					}
 				}
+				Simulation.logEvent(SimulationEvent.cookCompletedOrder(this, currCustomer.getOrderNum()));
 				
+//				synchronized(Simulation.completedOrder){
+//					Simulation.completedOrder.put(currCustomer, true);
+//					Simulation.completedOrder.notifyAll();
+//				}
 				finishedFood = new LinkedList<Food>();
 			
 			

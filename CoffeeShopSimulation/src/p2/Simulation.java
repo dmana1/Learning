@@ -99,12 +99,11 @@ public class Simulation {
 		// Start up machines
 		machinesMap.put(FoodType.burger.toString(), new Machine("Grill", FoodType.burger, machineCapacity));
 		machinesMap.put(FoodType.fries.toString(), new Machine("Fryer", FoodType.fries, machineCapacity));
-		machinesMap.put(FoodType.coffee.toString(), new Machine("CoffeeMaker2000", FoodType.coffee, machineCapacity));
+		machinesMap.put(FoodType.coffee.toString(), new Machine("CoffeMaker2000", FoodType.coffee, machineCapacity));
 		
 		grill = new Machine("Grill", FoodType.burger, machineCapacity);
 		fryer = new Machine("Fryer", FoodType.fries, machineCapacity);
 		coffeeMaker2000 = new Machine("CoffeeMaker2000", FoodType.coffee, machineCapacity);
-		
 		for(Machine machine : machinesMap.values()){
 			logEvent(SimulationEvent.machineStarting(machine, machine.machineFoodType, machineCapacity));
 		}
@@ -236,30 +235,12 @@ public class Simulation {
 		int numTables = 5;
 		int machineCapacity = 4;
 		boolean randomOrders = false;
-		
-//		int numCustomers = 5000;
-//		int numCooks =100;
-//		int numTables = 100;
-//		int machineCapacity = 100;
-//		boolean randomOrders = false;
-		
 
 
 		// Run the simulation and then 
 		//   feed the result into the method to validate simulation.
-//		System.out.println("Did it work? " + 
-//				Validate1.validateSimulation(
-//						runSimulation(
-//								numCustomers, numCooks, 
-//								numTables, machineCapacity,
-//								randomOrders
-//								),numCustomers, numCooks, 
-//								numTables, machineCapacity
-//						)
-//				);
-//		
 		System.out.println("Did it work? " + 
-				Validate2.validateSimulation(
+				Validate.validateSimulation(
 						runSimulation(
 								numCustomers, numCooks, 
 								numTables, machineCapacity,
@@ -267,8 +248,8 @@ public class Simulation {
 								)
 						)
 				);
-
 	}
+
 }
 
 
